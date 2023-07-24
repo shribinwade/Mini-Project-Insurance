@@ -1,0 +1,56 @@
+package com.insurance.runner;
+
+import java.time.LocalDate;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
+import org.springframework.stereotype.Component;
+
+import com.insurance.entity.CitizenPlan;
+import com.insurance.repo.CitizenPlanRepository;
+
+@Component
+public class DataLoader implements ApplicationRunner {
+
+	@Autowired
+	private CitizenPlanRepository repo;
+
+	@Override
+	public void run(ApplicationArguments args) throws Exception {
+		// TODO Auto-generated method stub
+		
+		CitizenPlan c1 =new CitizenPlan();
+		c1.setCitizenName("john");
+		c1.setGender("Male");
+		c1.setPlanStatus("Approved");
+		c1.setPlanStartDate(LocalDate.now());
+		c1.setPlanEndDate(LocalDate.now().plusMonths(6));
+		c1.setPlanName("Cash");
+		c1.setBenefitAmt(5000.0);
+		
+		//Cash plan data
+		CitizenPlan c2 = new CitizenPlan();
+		c2.setCitizenName("Smith");
+		c2.setGender("Male");
+		c2.setPlanName("Cash");
+		c2.setPlanStatus("Denied");
+		c2.setDenialReason("Rent income");
+		
+		//Cash plan data
+		CitizenPlan c3 = new CitizenPlan();
+		c3.setCitizenName("Cathy");
+		c3.setGender("Fe-Male");
+		c3.setPlanStatus("Terminated");
+		c3.setPlanStartDate(LocalDate.now().minusMonths(4));
+		c3.setPlanEndDate(LocalDate.now().plusMonths(6));
+		c3.setPlanName("Cash");
+		c3.setTerminationDate(LocalDate.now());
+		c3.setBenefitAmt(5000.0);
+		c3.setTerminationRsn("Employed");
+		
+	
+	}
+	
+
+}

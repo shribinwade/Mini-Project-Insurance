@@ -1,0 +1,4 @@
+
+spring.datasource.username=root
+spring.datasource.password=root
+spring.datasource.utl=jdbc:mysql://localhost:3306/insurace_details

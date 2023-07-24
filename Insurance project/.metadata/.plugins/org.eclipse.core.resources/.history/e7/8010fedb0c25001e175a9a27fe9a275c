@@ -1,0 +1,11 @@
+package com.insurance.service;
+
+import java.util.List;
+
+public interface ReportService {
+
+	public List<String> getPlanNames();
+	
+	public List<String> getPlanStatus();
+	
+}

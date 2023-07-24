@@ -1,0 +1,20 @@
+package com.insurance.repo;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.insurance.entity.CitizenPlan;
+
+public interface CitizenPlanRepository extends JpaRepository<CitizenPlan, Integer> {
+	
+	@Query("select distinct(plan_name) from citizen_plans_info;")
+	public List <String> getPlanNames();
+
+	@Query("select distinct(plan_status) from citizen_plans_info;")
+	public List <String> getPlanStatus();
+	
+	@Query("select distinct(gender) from citizen_plans_info;")
+	public List <String> getGender();
+}

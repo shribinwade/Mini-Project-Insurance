@@ -1,0 +1,38 @@
+package com.insurance.runner;
+
+import java.time.LocalDate;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
+import org.springframework.stereotype.Component;
+
+import com.insurance.entity.CitizenPlan;
+import com.insurance.repo.CitizenPlanRepository;
+
+@Component
+public class DataLoader implements ApplicationRunner {
+
+	@Autowired
+	private CitizenPlanRepository repo;
+
+	@Override
+	public void run(ApplicationArguments args) throws Exception {
+		// TODO Auto-generated method stub
+		
+		CitizenPlan c1 =new CitizenPlan();
+		c1.setCitizenName("john");
+		c1.setGender("Male");
+		c1.setPlanStatus("Approved");
+		c1.setPlanStartDate(LocalDate.now());
+		c1.setPlanEndDate(LocalDate.now().plusMonths(6));
+		c1.setPlanName("Cash");
+		
+		c1.setBenefitAmt(null);
+		c1.setDenialReason(null);
+		c1.setTerminationRsn(null);
+		c1.setTerminationDate(null);
+	}
+	
+
+}
